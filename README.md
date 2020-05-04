@@ -20,9 +20,9 @@
 
 ## Install
 ```bash
-git clone https://github.com/tarikkavaz/Boilerplate
+git clone https://github.com/tarikkavaz/HTML-Boilerplate
 
-cd Boilerplate
+cd HTML-Boilerplate
 
 npm install
 ```
