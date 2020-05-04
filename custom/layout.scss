@@ -1,0 +1,153 @@
+// VARS
+// *****************************************************************************************************
+@import "imports";
+
+// MEDIA BREAKPOINT SAMPLES
+// Down
+// @include media-breakpoint-down(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
+// @include media-breakpoint-down(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
+// @include media-breakpoint-down(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
+// @include media-breakpoint-down(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
+// @include media-breakpoint-down(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
+// Only
+@include media-breakpoint-only(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
+@include media-breakpoint-only(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
+@include media-breakpoint-only(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
+@include media-breakpoint-only(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
+@include media-breakpoint-only(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
+// Up
+// @include media-breakpoint-up(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
+// @include media-breakpoint-up(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
+// @include media-breakpoint-up(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
+// @include media-breakpoint-up(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
+// @include media-breakpoint-up(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
+
+// *****************************************************************************************************
+
+body, html {
+    position: relative;
+    min-height: 100%;
+    background-color: $theme-white;
+}
+
+.navbar {
+    // opacity: 0;
+    // transition-property: transform, opacity;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    transition: all 0.5s;
+    background: transparent !important;
+    a {
+        color: $theme-white !important;
+    }
+    .dropdown-item {
+        color: $theme-black !important;
+    }
+    img {
+        max-height: 80px;
+        transition: all 0.5s;
+    }
+}
+.compressed {
+    // opacity: 1;
+    // transition-property: transform, opacity; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $theme-black !important;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    a {
+        color: $theme-white !important;
+    }
+    img {
+        max-height: 40px;
+    }
+}
+.modal-backdrop {
+    background-color:$theme-dark-gray;
+    opacity: .7 !important;
+}
+#heading {
+    background: url("../img/pebbles.jpg") no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#content {
+    background-color: $theme-white;
+    color: $theme-dark-gray;
+    #gallery {
+        img {
+            max-width: 200px;
+        }
+    }
+
+}
+.box {
+    position: fixed;
+    bottom: 1rem;
+}
+
+.box-top {
+    position: fixed;
+    bottom: -5rem;
+}
+.box-top-right {
+    margin-left: auto;
+    right: -40px;
+
+}
+.box-top-left {
+    margin: auto;
+    left: -40px;
+
+}
+.box-right {
+    margin-left: auto;
+    right: 1rem;
+}
+.box-left {
+    margin: auto;
+    left: 1rem;
+}
+
+.pebble-0 {
+    max-height: 350px; 
+    height: auto;
+}
+.pebble-1-l {
+    max-height: 350px; 
+    height: auto;
+}
+.pebble-1-r {
+    max-height: 300px; 
+    height: auto; 
+    margin-right: 3rem;
+}
+.pebble-2-l {
+    max-height: 300px; 
+    height: auto; 
+    margin-left: 3rem;
+}
+.pebble-2-r {
+    max-height: 350px; 
+    height: auto;
+}
+.pebble-b-l {
+    max-height: 150px; 
+    height: auto;
+}
+.pebble-b-r {
+    max-height: 150px; 
+    height: auto;
+}
+
+footer {
+    background-color: $theme-dark-gray;
+    color: $theme-white;
+    font-family: 'Gotham';
+    font-weight: 500;
+    img {
+        max-height: 80px;
+    }
+}

@@ -1,0 +1,51 @@
+[data-aos="ntb-hide"] {
+    opacity: 1;
+    transition-property: opacity, transform;
+    &.aos-animate {
+        opacity: 0;
+        transform: translate(0)
+    }
+}
+
+[data-aos="ntb-left-in"] {
+    transform: translateX(-100vw);
+    transition-property: all, transform;
+    &.aos-animate {
+        transform: translateX(0);
+        transition-property: all, transform;
+    }
+}
+
+[data-aos="ntb-right-in"] {
+    transform: translateX(100vw);
+    transition-property: all, transform;
+    &.aos-animate {
+        transform: translateX(0);
+        transition-property: all, transform;
+    }
+}
+
+[data-aos="ntb-left-out"] {
+    transform: translateX(0);
+    transition-property: all, transform;
+    &.aos-animate {
+        transform: translateX(-100vw);
+        transition-property: all, transform;
+    }
+}
+
+[data-aos="ntb-right-out"] {
+    transform: translateX(0);
+    transition-property: all, transform;
+    &.aos-animate {
+        transform: translateX(100vw);
+        transition-property: all, transform;
+    }
+}
+
+[data-aos] {
+    body[data-aos-easing="ntb-easing"] &,
+    &[data-aos][data-aos-easing="ntb-easing"] {
+        transition-timing-function: cubic-bezier(.250, .250, .750, .750);
+    }
+}

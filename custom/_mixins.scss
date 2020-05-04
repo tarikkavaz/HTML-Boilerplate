@@ -1,0 +1,44 @@
+$theme-white:       #ffffff;
+$theme-black:       #000000;
+$theme-dark-gray:   #333333;
+$theme-light-gray:  #cccccc;
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../webfonts/Gotham-Medium.eot');
+    src: url('../webfonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/Gotham-Medium.woff') format('woff'),
+        url('../webfonts/Gotham-Medium.ttf')  format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham';
+    src: url('../webfonts/Gotham-Light.eot');
+    src: url('../webfonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/Gotham-Light.woff') format('woff'),
+        url('../webfonts/Gotham-Light.ttf')  format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham';
+    src: url('../webfonts/Gotham-Bold.eot');
+    src: url('../webfonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/Gotham-Bold.woff') format('woff'),
+        url('../webfonts/Gotham-Bold.ttf')  format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@mixin font-awesome ($icon){
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    font-family: 'Font Awesome 5 Free';
+    content: "#{$icon}";
+    font-weight: 900;
+}
