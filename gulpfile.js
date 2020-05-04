@@ -8,6 +8,7 @@ var sass        = require('gulp-sass');
 // Compile all .scss into src/css/global.css
 gulp.task('sass', function() {
     return gulp.src([
+            'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
             'node_modules/jquery-fancybox/source/scss/jquery.fancybox.scss',
             'node_modules/retinajs/dist/_retina.scss',
             'node_modules/aos/src/sass/aos.scss',
@@ -48,10 +49,11 @@ gulp.task('icons', function() {
 gulp.task('serve', gulp.series('sass', function() {
 
     browserSync.init({
+        open: false,
         server: "./src"  
     });
 
-    gulp.watch(['node_modules/bootstrap/scss/*.scss', 'custom/**/*.scss'], gulp.series(['sass'])).on('change', browserSync.reload);
+    gulp.watch(['custom/**/*.scss'], gulp.series(['sass'])).on('change', browserSync.reload);
     gulp.watch(['custom/**/*.js'], gulp.series(['js'])).on('change', browserSync.reload);
     gulp.watch('src/**/*.html').on('change', browserSync.reload);
 }));

@@ -1,43 +1,15 @@
-// VARS
-// *****************************************************************************************************
 @import "imports";
 
-// MEDIA BREAKPOINT SAMPLES
-// Down
-// @include media-breakpoint-down(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
-// @include media-breakpoint-down(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
-// @include media-breakpoint-down(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
-// @include media-breakpoint-down(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
-// @include media-breakpoint-down(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
-// Only
-@include media-breakpoint-only(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
-@include media-breakpoint-only(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
-@include media-breakpoint-only(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
-@include media-breakpoint-only(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
-@include media-breakpoint-only(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
-// Up
-// @include media-breakpoint-up(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
-// @include media-breakpoint-up(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
-// @include media-breakpoint-up(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
-// @include media-breakpoint-up(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
-// @include media-breakpoint-up(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
-
-// *****************************************************************************************************
-
-body, html {
+html {
     position: relative;
-    min-height: 100%;
+    min-height: 100vh;
+    min-height: -webkit-fill-availabe;
+}
+body {
+
     background-color: $theme-white;
 }
-.fa, .fas, .far, .fal, .fad, .fab { 
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-} 
+
 .navbar {
     // opacity: 0;
     // transition-property: transform, opacity;
@@ -89,7 +61,17 @@ body, html {
             max-width: 200px;
         }
     }
-
+    @include media-breakpoint-only(xs) { .mp-test{color:gray;span{&:after{@include font-awesome('\f3cd')}}} }
+    @include media-breakpoint-only(sm) { .mp-test{color:red;span{&:after{@include font-awesome('\f3fa')}}} }
+    @include media-breakpoint-only(md) { .mp-test{color:green;span{&:after{@include font-awesome('\f109')}}} }
+    @include media-breakpoint-only(lg) { .mp-test{color:blue;span{&:after{@include font-awesome('\f108');}}} }
+    @include media-breakpoint-only(xl) { .mp-test{color:black;span{&:after{@include font-awesome('\f26c');}}} }
+}
+#icons {
+    i {
+        font-size: 2rem;
+        padding: .5rem;
+    }
 }
 .box {
     position: fixed;
