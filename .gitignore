@@ -45,4 +45,6 @@ twbsconfig.yml
 # Folders to ignore
 node_modules
 js/coverage
+src/_assets/css
+src/_assets/js
 src/_assets/webfonts
