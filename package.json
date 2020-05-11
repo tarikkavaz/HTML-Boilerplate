@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/tarikkavaz/Boilerplate.git"
+    "url": "git://github.com/tarikkavaz/HTML-Boilerplate.git"
   },
   "dependencies": {
     "bootstrap": "^4.4.0",
