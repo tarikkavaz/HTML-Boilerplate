@@ -19,7 +19,7 @@ gulp.task('sass', function() {
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(concat('global.css'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest("src/_assets/css"))
+        .pipe(gulp.dest("src/assets/css"))
         .pipe(browserSync.stream());
 });
 
@@ -36,14 +36,14 @@ gulp.task('js', function() {
         ])
         .pipe(concat('main.js'))
         .pipe(uglify())
-        .pipe(gulp.dest("src/_assets/js"))
+        .pipe(gulp.dest("src/assets/js"))
         .pipe(browserSync.stream());
 });
 
 // Font Awesome Webfonts
 gulp.task('icons', function() {
     return gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
-        .pipe(gulp.dest('src/_assets/webfonts/'));
+        .pipe(gulp.dest('src/assets/webfonts/'));
 });
 
 // Static Server + watching scss/html files
