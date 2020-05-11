@@ -4,6 +4,7 @@ var uglify      = require('gulp-terser')
 var sourcemaps  = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
+var rsync       = require('gulp-rsync');
 
 // Compile all .scss into src/css/global.css
 gulp.task('sass', function() {
@@ -59,3 +60,13 @@ gulp.task('serve', gulp.series('sass', function() {
 }));
 
 gulp.task('default', gulp.parallel('js','icons','serve'));
+
+gulp.task('deploy', function() {
+    return gulp.src('src/**')
+        .pipe(rsync({
+            root: 'src/',
+            username: 'deployer',
+            hostname: '111.22.3.44',
+            destination: '/home/deployer/sites/test.com'
+        }));
+});
