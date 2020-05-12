@@ -59,7 +59,8 @@ gulp.task('serve', gulp.series('sass', function() {
     gulp.watch('src/**/*.html').on('change', browserSync.reload);
 }));
 
-gulp.task('default', gulp.parallel('js','icons','serve'));
+// gulp.task('default', gulp.parallel('js','icons','serve'));
+gulp.task('default', gulp.parallel('js','serve'));
 
 gulp.task('deploy', function() {
     return gulp.src('src/**')
