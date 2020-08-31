@@ -42,3 +42,12 @@ $theme-light-gray:  #cccccc;
     content: "#{$icon}";
     font-weight: 900;
 }
+
+@mixin leftplus {
+    @for $i from 1 through 11 {
+        &:nth-child(#{$i}) {
+            position: relative;
+            left: -#{$i * .9}rem;
+        }
+    }
+}
