@@ -1,48 +1,77 @@
-@font-face {
-    font-family: 'Gotham';
-    src: url('../webfonts/Gotham-Medium.eot');
-    src: url('../webfonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../webfonts/Gotham-Medium.woff') format('woff'),
-        url('../webfonts/Gotham-Medium.ttf')  format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Gotham';
-    src: url('../webfonts/Gotham-Light.eot');
-    src: url('../webfonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
-        url('../webfonts/Gotham-Light.woff') format('woff'),
-        url('../webfonts/Gotham-Light.ttf')  format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Gotham';
-    src: url('../webfonts/Gotham-Bold.eot');
-    src: url('../webfonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../webfonts/Gotham-Bold.woff') format('woff'),
-        url('../webfonts/Gotham-Bold.ttf')  format('truetype');
-    font-weight: bold;
-    font-style: normal;
+//Rounded Corners
+@mixin border-radius($size) {
+    -webkit-border-radius: $size + px;
+    -moz-border-radius: $size + px;
+    border-radius: $size + px;
 }
 
-@mixin font-awesome ($icon){
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-
-    font-family: 'Font Awesome 5 Free';
-    content: "#{$icon}";
-    font-weight: 900;
+// Linear Gradients
+@mixin linear-gradient($fromColor, $toColor) {
+    background-color: $toColor;
+    /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, $fromColor, $toColor);
+    /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(top, $fromColor, $toColor);
+    /* FF3.6 */
+    background-image: -ms-linear-gradient(top, $fromColor, $toColor);
+    /* IE10 */
+    background-image: -o-linear-gradient(top, $fromColor, $toColor);
+    /* Opera 11.10+ */
+    background-image: linear-gradient(top, $fromColor, $toColor);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr=  '#{$fromColor}', EndColorStr='#{$toColor}');
 }
 
-@mixin leftplus {
-    @for $i from 1 through 11 {
-        &:nth-child(#{$i}) {
-            position: relative;
-            left: -#{$i * .9}rem;
+//Opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//Background Opacity
+@mixin background-opacity($bgmenu, $opacity: 0.3) {
+    background: $bgmenu;
+    /* The Fallback */
+    background: rgba($bgmenu, $opacity);
+}
+
+//Headers
+$step-size-heading: 0.33333;
+$amplifier-heading: 0.8;
+@mixin heading-size($size) {
+    font-size: $size * $step-size-heading * $amplifier-heading + em;
+}
+
+// REM Units with PX Fallback
+@mixin rem($property, $values...) {
+    $n: length($values);
+    $i: 1;
+    $pxlist: ();
+    $remlist: ();
+    @while $i <= $n {
+        $itemVal: (nth($values, $i));
+
+        @if $itemVal != "auto" {
+            $pxlist: append($pxlist, $itemVal + px);
+            $remlist: append($remlist, ($itemVal / 10) + rem);
         }
+        @else {
+            $pxlist: append($pxlist, auto);
+            $remlist: append($remlist, auto);
+        }
+        $i: $i + 1;
+    }
+    #{$property}: $pxlist;
+    #{$property}: $remlist;
+}
+
+// Retina Images
+@mixin image-2x($image, $width, $height) {
+    @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx){
+        background-image: url($image);
+        background-size: $width + px $height + px;
+        background-size: $width / 10 + rem $height / 10 + rem;
     }
 }
