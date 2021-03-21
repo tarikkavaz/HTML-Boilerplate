@@ -1,35 +1,57 @@
 // Colors
 $colors: (
     //Output: --clr-orange-100  
-    orange: (
-        100: hsl(14, 100%, 80%),
-        200: hsl(14, 100%, 70%),
-        300: hsl(14, 100%, 60%),
-        400: hsl(12, 100%, 43%),
-        500: hsl(14, 100%, 20%),
+    basic: (
+        100: hsl(0, 0%, 100%),
+        80: hsl(0, 0%, 80%),
+        70: hsl(0, 0%, 70%),
+        60: hsl(0, 0%, 60%),
+        50: hsl(0, 0%, 50%),
+        40: hsl(0, 0%, 40%),
+        30: hsl(0, 0%, 30%),
+        20: hsl(0, 0%, 20%),
+        10: hsl(0, 0%, 0%),
+        0: hsl(0, 0%, 0%),
     ),
     blue: (
-        100: hsl(219, 100%, 80%),
-        200: hsl(219, 100%, 70%),
-        300: hsl(219, 100%, 60%),
-        400: hsl(219, 100%, 37%),
-        500: hsl(219, 100%, 20%),
+        80: hsl(212, 100%, 80%),
+        70: hsl(212, 100%, 70%),
+        60: hsl(212, 100%, 60%),
+        50: hsl(212, 100%, 50%),
+        40: hsl(212, 100%, 40%),
+        30: hsl(212, 100%, 30%),
+        20: hsl(212, 100%, 20%),
+        10: hsl(212, 100%, 10%),
+    ),
+    green: (
+        80: hsl(135, 100%, 80%),
+        70: hsl(135, 100%, 70%),
+        60: hsl(135, 100%, 60%),
+        50: hsl(135, 100%, 50%),
+        40: hsl(135, 100%, 40%),
+        20: hsl(135, 100%, 20%),
+        10: hsl(135, 100%, 10%),
     ),
     red: (
-        100: hsl(345, 100%, 80%),
-        200: hsl(345, 100%, 70%),
-        300: hsl(345, 100%, 60%),
-        400: hsl(345, 100%, 46%),
-        500: hsl(345, 100%, 20%),
+        80: hsl(355, 100%, 80%),
+        70: hsl(355, 100%, 70%),
+        60: hsl(355, 100%, 60%),
+        50: hsl(355, 100%, 50%),
+        40: hsl(355, 100%, 40%),
+        30: hsl(355, 100%, 30%),
+        20: hsl(355, 100%, 20%),
+        10: hsl(355, 100%, 10%),
     ),
-    grayscale: (
-        100: hsl(0, 0%, 100%),
-        200: hsl(0, 0%, 87%),
-        300: hsl(0, 0%, 40%),
-        400: hsl(0, 0%, 30%),
-        500: hsl(0, 0%, 15%),
-        600: hsl(0, 0%, 0%),
-    )
+    orange: (
+        80: hsl(46, 100%, 80%),
+        70: hsl(46, 100%, 70%),
+        60: hsl(46, 100%, 60%),
+        50: hsl(46, 100%, 50%),
+        40: hsl(46, 100%, 40%),
+        30: hsl(46, 100%, 30%),
+        20: hsl(46, 100%, 20%),
+        10: hsl(46, 100%, 10%),
+    ),
 );
 
 //Color Name Generator
@@ -39,17 +61,28 @@ $colors: (
             --clr-#{$color}-#{$shade}: #{$value};
         }
     }
+    @each $color, $shades in $colors {
+        @each $shade, $value in $shades {
+            --bg-#{$color}-#{$shade}: #{$value};
+        }
+    }
 }
 
 
-// Bootstrap Variables
-$theme-colors: (
-    primary: $primary,
-    secondary: $secondary,
-    success: $success,
-    danger: $danger,
-    warning: $warning,
-    info: $info,
-    light: $light,
-    dark: $dark,
-);
+// $primary:   var(--clr-red-20);
+// $secondary: var(--clr-blue-60);
+// $success:   var(--clr-green-60);
+// $danger:    var(--clr-red-60);
+// $info:      var(--clr-blue-60);
+// $warning:   var(--clr-orange-60);
+// $light:     var(--clr-basit-80);
+// $dark:      var(--clr-basit-20);
+
+// $theme-colors: () !default;
+// $theme-colors: map-merge(
+//     $theme-colors,
+//     (
+//         "primary": $primary,
+//         "secondary": $secondary,
+//     )
+// );

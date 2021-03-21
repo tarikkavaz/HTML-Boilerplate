@@ -13,14 +13,6 @@ html {
     // font-size: 62.5%;
 }
 
-//Fancybox GFX's
-#fancybox-loading div, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-    background-image: url('../img/fancybox_sprite.png') !important;
-}
-.fancybox-overlay {
-    background-image: url('../img/fancybox_overlay.png');
-}
-
 // Reduce Motion
 @media (prefers-reduced-motion: reduce) {
     *,
