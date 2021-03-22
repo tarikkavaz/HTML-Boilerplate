@@ -1,6 +1,5 @@
 // Colors
 $colors: (
-    //Output: --clr-orange-100  
     basic: (
         100: hsl(0, 0%, 100%),
         80: hsl(0, 0%, 80%),
@@ -69,14 +68,14 @@ $colors: (
 }
 
 
-// $primary:   var(--clr-red-20);
-// $secondary: var(--clr-blue-60);
-// $success:   var(--clr-green-60);
-// $danger:    var(--clr-red-60);
-// $info:      var(--clr-blue-60);
-// $warning:   var(--clr-orange-60);
-// $light:     var(--clr-basit-80);
-// $dark:      var(--clr-basit-20);
+$primary:   var(--clr-red-20);
+$secondary: var(--clr-blue-60);
+$success:   var(--clr-green-60);
+$danger:    var(--clr-red-60);
+$info:      var(--clr-blue-60);
+$warning:   var(--clr-orange-60);
+$light:     var(--clr-basit-80);
+$dark:      var(--clr-basit-20);
 
 // $theme-colors: () !default;
 // $theme-colors: map-merge(
