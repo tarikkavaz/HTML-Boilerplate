@@ -13,7 +13,7 @@ gulp.task('sass', function() {
             'node_modules/jquery-fancybox/source/scss/jquery.fancybox.scss',
             'node_modules/retinajs/dist/_retina.scss',
             'node_modules/aos/src/sass/aos.scss',
-            'custom/*.scss'
+            'custom/styles/*.scss'
         ])
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}))
@@ -32,7 +32,7 @@ gulp.task('js', function() {
             'node_modules/jquery-fancybox/source/js/jquery.fancybox.js',
             'node_modules/retinajs/dist/retina.min.js',
             'node_modules/aos/dist/aos.js',
-            'custom/scripts.js'
+            'custom/scripts/scripts.js'
         ])
         .pipe(concat('main.js'))
         .pipe(uglify())
@@ -54,8 +54,8 @@ gulp.task('serve', gulp.series('sass', function() {
         server: "./src"  
     });
 
-    gulp.watch(['custom/**/*.scss'], gulp.series(['sass'])).on('change', browserSync.reload);
-    gulp.watch(['custom/**/*.js'], gulp.series(['js'])).on('change', browserSync.reload);
+    gulp.watch(['custom/styles/**/*.scss'], gulp.series(['sass'])).on('change', browserSync.reload);
+    gulp.watch(['custom/scripts**/*.js'], gulp.series(['js'])).on('change', browserSync.reload);
     gulp.watch('src/**/*.html').on('change', browserSync.reload);
 }));
 
