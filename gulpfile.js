@@ -13,9 +13,11 @@ gulp.task('sass', function() {
             'node_modules/jquery-fancybox/source/scss/jquery.fancybox.scss',
             'node_modules/retinajs/dist/_retina.scss',
             'node_modules/aos/src/sass/aos.scss',
+            'node_modules/normalize.css/normalize.css',
             'custom/styles/*.scss'
         ])
         .pipe(sourcemaps.init())
+        .pipe(sass({includePaths: require("node-normalize-scss").includePaths}))
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('global.css'))
         .pipe(sourcemaps.write())
