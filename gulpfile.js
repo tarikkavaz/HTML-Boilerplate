@@ -7,36 +7,21 @@ var sass        = require('gulp-sass');
 var rsync       = require('gulp-rsync');
 
 // Compile all .scss into src/css/global.css
-gulp.task('colors-sass', function() {
-    return gulp.src([
-            'custom/styles/colors.scss'
-        ])
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(concat('colorsvar.scss'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest("custom/styles"))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('global-sass', function() {
+gulp.task('sass', function() {
     return gulp.src([
             'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
             'node_modules/jquery-fancybox/source/scss/jquery.fancybox.scss',
             'node_modules/retinajs/dist/_retina.scss',
             'node_modules/aos/src/sass/aos.scss',
-            'custom/styles/style.scss'
+            'custom/styles/*.scss'
         ])
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('global.css'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest("src/assets/css"))
         .pipe(browserSync.stream());
 });
-
-gulp.task('sass', gulp.parallel('colors-sass','global-sass'));
-
 
 // Compile all javascript files into src/js/main.js
 gulp.task('js', function() {
@@ -69,7 +54,6 @@ gulp.task('serve', gulp.series('sass', function() {
         server: "./src"  
     });
 
-    // gulp.watch(['custom/styles/_colors.scss'], gulp.series(['colors'])).on('change', browserSync.reload);
     gulp.watch(['custom/styles/**/*.scss'], gulp.series(['sass'])).on('change', browserSync.reload);
     gulp.watch(['custom/scripts**/*.js'], gulp.series(['js'])).on('change', browserSync.reload);
     gulp.watch('src/**/*.html').on('change', browserSync.reload);

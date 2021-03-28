@@ -66,17 +66,4 @@ $colors: (
         }
     }
 
-    @each $color, $shades in $colors {
-        @each $shade, $value in $shades {
-            #{'$'}#{$color}-#{$shade}: #{$value};
-        }
-    }
-    @each $color, $shades in $colors {
-        @each $shade, $value in $shades {
-            .clr-#{$color}-#{$shade} {
-                color:$value;
-            }
-        }
-    }
-
 }
