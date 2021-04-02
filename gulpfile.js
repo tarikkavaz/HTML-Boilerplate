@@ -8,6 +8,13 @@ var browserSync  = require('browser-sync').create();
 var sass         = require('gulp-sass');
 var rsync        = require('gulp-rsync');
 
+var processors = [
+    autoprefixer(  {
+        // cascade: false,
+        grid: true
+    })
+];
+
 // Compile all .scss into src/css/global.css
 gulp.task('sass', function() {
     return gulp.src([
