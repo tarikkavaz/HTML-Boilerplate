@@ -1,10 +1,12 @@
-var gulp        = require('gulp');
-var concat      = require('gulp-concat')
-var uglify      = require('gulp-terser')
-var sourcemaps  = require('gulp-sourcemaps');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
-var rsync       = require('gulp-rsync');
+var gulp         = require('gulp');
+var concat       = require('gulp-concat');
+var uglify       = require('gulp-terser');
+var autoprefixer = require('autoprefixer');
+var sourcemaps   = require('gulp-sourcemaps');
+var postcss      = require('gulp-postcss');
+var browserSync  = require('browser-sync').create();
+var sass         = require('gulp-sass');
+var rsync        = require('gulp-rsync');
 
 // Compile all .scss into src/css/global.css
 gulp.task('sass', function() {
@@ -18,11 +20,19 @@ gulp.task('sass', function() {
         ])
         .pipe(sourcemaps.init())
         .pipe(sass({includePaths: require("node-normalize-scss").includePaths}))
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(sass({outputStyle: 'nested'}).on('error', sass.logError))
         .pipe(concat('global.css'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest("src/assets/css"))
+        .pipe(gulp.dest("./custom/styles/temp"))
         .pipe(browserSync.stream());
+});
+
+gulp.task('autoprefixer', function() {
+    return gulp.src('./custom/styles/temp/*.css')
+        .pipe(sourcemaps.init())
+        .pipe(postcss([ autoprefixer() ]))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./src/assets/css/'))
 });
 
 // Compile all javascript files into src/js/main.js
@@ -49,7 +59,7 @@ gulp.task('icons', function() {
 });
 
 // Static Server + watching scss/html files
-gulp.task('serve', gulp.series('sass', function() {
+gulp.task('serve', gulp.series('sass', 'autoprefixer', function() {
 
     browserSync.init({
         open: false,
